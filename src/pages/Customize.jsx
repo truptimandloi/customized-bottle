@@ -68,14 +68,14 @@ Thank you for your order! 🎉
   };
 
   return (
-    <div className="min-h-screen bg-white py-12 px-4">
+    <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-green-50 to-teal-100 py-12 px-4">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="mb-12">
-          <h1 className="text-4xl font-bold text-gray-900 mb-2">
+          <h1 className="text-4xl font-extrabold bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent mb-3">
             Customize Your Bottle
           </h1>
-          <p className="text-gray-700">
+          <p className="text-gray-600 text-lg">
             Follow 4 simple steps to create your perfect bottle
           </p>
         </div>
@@ -85,11 +85,11 @@ Thank you for your order! 🎉
           {[1, 2, 3, 4].map((s) => (
             <div key={s} className="flex items-center">
               <div
-                className={`w-12 h-12 rounded-full flex items-center justify-center font-bold transition-all ${
+                className={`w-12 h-12 rounded-full shadow-lg ring-4 ring-white flex items-center justify-center font-bold transition-all ${
                   s === step
-                    ? "bg-blue-600 text-white scale-110"
+                    ? " from-emerald-600 to-teal-600 text-white shadow-lg scale-110 "
                     : s < step
-                    ? "bg-green-600 text-white"
+                    ? "bg-emerald-600 text-white"
                     : "bg-gray-300 text-gray-600"
                 }`}
               >
@@ -109,22 +109,22 @@ Thank you for your order! 🎉
         {/* Step Titles */}
         <div className="grid grid-cols-4 gap-4 mb-12 text-center">
           <div>
-            <p className={`text-sm font-semibold ${step >= 1 ? "text-blue-600" : "text-gray-500"}`}>
+            <p className={`text-sm font-semibold ${step >= 1 ? "text-emerald-600" : "text-gray-500"}`}>
               Step 1: Pick Design
             </p>
           </div>
           <div>
-            <p className={`text-sm font-semibold ${step >= 2 ? "text-blue-600" : "text-gray-500"}`}>
+            <p className={`text-sm font-semibold ${step >= 2 ? "text-emerald-600" : "text-gray-500"}`}>
               Step 2: Logo & Brand
             </p>
           </div>
           <div>
-            <p className={`text-sm font-semibold ${step >= 3 ? "text-blue-600" : "text-gray-500"}`}>
+            <p className={`text-sm font-semibold ${step >= 3 ? "text-emerald-600" : "text-gray-500"}`}>
               Step 3: Generate Label
             </p>
           </div>
           <div>
-            <p className={`text-sm font-semibold ${step >= 4 ? "text-blue-600" : "text-gray-500"}`}>
+            <p className={`text-sm font-semibold ${step >= 4 ? "text-emerald-600" : "text-gray-500"}`}>
               Step 4: Download & Share
             </p>
           </div>
@@ -167,7 +167,7 @@ Thank you for your order! 🎉
           </div>
 
           {/* RIGHT - FORM CONTENT */}
-          <div className="bg-white rounded-3xl shadow-xl p-8 space-y-8">
+          <div className="bg-white/80 backdrop-blur-xl  border-emerald-100 rounded-3xl shadow-2xl p-8 space-y-8 border border-white/40">
             {/* STEP 1 - DESIGN SELECTOR */}
             {step === 1 && (
               <div className="space-y-6">
@@ -177,7 +177,7 @@ Thank you for your order! 🎉
                   <button
                     onClick={() => setStep(2)}
                     disabled={!canContinue[1]}
-                    className="w-full bg-blue-600 text-white p-4 rounded-xl hover:bg-blue-700 disabled:bg-gray-300 transition-all font-semibold"
+                    className="bg-gradient-to-r from-emerald-600 to-teal-600 text-white p-4 rounded-xl shadow-lg hover:scale-105 hover:shadow-xl  duration-300 hover:bg-emerald-700 disabled:bg-gray-300 transition-all font-semibold"
                   >
                     Continue to Next Step
                   </button>
@@ -200,7 +200,7 @@ Thank you for your order! 🎉
                           alt="Logo"
                           className="w-32 h-32 object-contain mx-auto"
                         />
-                        <label className="text-sm text-blue-600 cursor-pointer hover:underline">
+                        <label className="text-sm text-emerald-600 cursor-pointer hover:underline">
                           Change Logo
                           <input
                             type="file"
@@ -260,14 +260,14 @@ Thank you for your order! 🎉
                 <div className="flex gap-4 pt-6">
                   <button
                     onClick={() => setStep(1)}
-                    className="w-1/2 border border-gray-300 p-4 rounded-xl bg-black hover:bg-gray-50 transition-all font-semibold"
+                    className="w-1/2 border border-gray-300 p-4 rounded-xl bg-gradient-to-r from-gray-800 to-black text-white hover:scale-105 transition-all duration-300 "
                   >
                     Back
                   </button>
                   <button
                     onClick={() => setStep(3)}
                     disabled={!canContinue[2]}
-                    className="w-1/2 bg-blue-600 text-white p-4 rounded-xl hover:bg-blue-700 disabled:bg-gray-300 transition-all font-semibold"
+                    className="w-1/2 bg-gradient-to-r from-emerald-600 to-teal-600 text-white p-4 rounded-xl hover:scale-105 hover:shadow-lg transition-all duration-300 font-semibold"
                   >
                     Continue
                   </button>
@@ -296,9 +296,7 @@ Thank you for your order! 🎉
                   <button
                     onClick={() => setStep(4)}
                     disabled={!canContinue[3]}
-                    className="w-1/2 bg-blue-600 text-white p-4 rounded-xl hover:bg-blue-700 disabled:bg-gray-300 transition-all font-semibold"
-                  >
-                    Generate Label & Continue
+                    className="w-1/2 bg-gradient-to-r from-emerald-600 to-teal-600 text-white p-4 rounded-xl hover:scale-105 hover:shadow-lg transition-all duration-300 font-semibold"> continue
                   </button>
                 </div>
               </div>

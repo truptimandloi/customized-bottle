@@ -16,7 +16,7 @@ export default function PlaceOrder() {
   return (
     <button
       onClick={handleOrder}
-      className="w-full bg-green-500 text-white p-4 rounded-xl mt-6"
+      className="w-full bg-emerald-500 text-white p-4 rounded-xl mt-6"
     >
       Place Order
     </button>

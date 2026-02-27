@@ -5,14 +5,15 @@ const CustomizerContext = createContext();
 
 export function CustomizerProvider({ children }) {
   const [selectedDesign, setSelectedDesign] = useState("");
-  const [quantity, setQuantity] = useState(0);      // store as number
+  const [quantity, setQuantity] = useState(0);
   const [brand, setBrand] = useState("");
   const [tagline, setTagline] = useState("");
-  const [price, setPrice] = useState(0);             // numeric price
+  const [price, setPrice] = useState(0);
   const [logo, setLogo] = useState(null);
   const [logoText, setLogoText] = useState("");
   const [logoColor, setLogoColor] = useState("#3b82f6");
   const [labelImage, setLabelImage] = useState(null);
+  const [labelDataUrl, setLabelDataUrl] = useState(null);
 
   return (
     <CustomizerContext.Provider
@@ -25,7 +26,8 @@ export function CustomizerProvider({ children }) {
         logo, setLogo,
         logoText, setLogoText,
         logoColor, setLogoColor,
-        labelImage, setLabelImage
+        labelImage, setLabelImage,
+        labelDataUrl, setLabelDataUrl
       }}
     >
       {children}

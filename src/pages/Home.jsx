@@ -5,8 +5,12 @@ export default function Home() {
     <div className="w-full overflow-hidden font-sans">
 
       {/* HERO SECTION */}
-      <section className="relative min-h-screen flex items-center px-6 md:px-16 bg-gradient-to-br from-emerald-800 via-teal-600 to-cyan-500 text-white">
+      <section className="relative min-h-screen flex items-center px-6 md:px-16 
+bg-gradient-to-br from-emerald-900 via-teal-700 to-cyan-600 
+text-white overflow-hidden">
 
+  <div className="absolute -top-20 -left-20 w-[500px] h-[500px] bg-emerald-400/20 rounded-full blur-3xl animate-pulse"></div>
+<div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-cyan-300/20 rounded-full blur-3xl animate-pulse"></div>
         {/* Background Blur Circle */}
         <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl"></div>
 
@@ -14,7 +18,7 @@ export default function Home() {
 
           {/* TEXT */}
           <div className="space-y-8">
-            <h1 className="text-4xl md:text-6xl font-extrabold leading-tight">
+            <h1 className="text-4xl md:text-6xl font-extrabold leading-tight tracking-tight animate-fadeInUp">
               Design Your <span className="text-yellow-300">Own Bottle</span> Brand
             </h1>
 
@@ -26,14 +30,16 @@ export default function Home() {
             <div className="flex flex-wrap gap-4">
               <Link
                 to="/customize"
-                className="bg-white text-emerald-700 px-8 py-3 rounded-full font-semibold shadow-xl hover:scale-105 transition duration-300"
-              >
-                Start Customizing
+                className="bg-white text-emerald-800 px-8 py-3 rounded-full font-semibold 
+shadow-lg hover:shadow-2xl hover:scale-105 
+transition-all duration-300" > Start Customizing
               </Link>
 
               <Link
                 to="/order"
-                className="border border-white px-8 py-3 rounded-full hover:bg-white hover:text-emerald-700 transition duration-300"
+                className="border border-white px-8 py-3 rounded-full 
+hover:bg-white hover:text-emerald-800 
+transition-all duration-300 backdrop-blur-md"
               >
                 Bulk Manufacturing
               </Link>
@@ -115,9 +121,11 @@ export default function Home() {
           ].map((step, i) => (
             <div
               key={i}
-              className="bg-gray-50 p-8 rounded-2xl shadow hover:shadow-lg transition"
+             className="bg-white p-8 rounded-2xl shadow-md 
+hover:shadow-2xl hover:-translate-y-3 
+transition-all duration-500 border border-gray-100"
             >
-              <div className="text-3xl font-bold text-emerald-600 mb-4">
+              <div className="text-4xl font-extrabold text-emerald-600 mb-4">
                 {i + 1}
               </div>
               <h3 className="font-semibold text-lg text-gray-700">
@@ -200,7 +208,7 @@ export default function Home() {
 </section>
 
       {/* STATS */}
-      <section className="py-20 bg-emerald-600 text-white text-center">
+      <section className="py-24 bg-gradient-to-r from-emerald-700 to-teal-600 text-white text-center">
         <div className="max-w-6xl mx-auto grid md:grid-cols-4 gap-10 px-6">
 
           {[
@@ -244,7 +252,10 @@ export default function Home() {
         href="https://wa.me/74xxxxxxxxx"
         target="_blank"
         rel="noopener noreferrer"
-        className="fixed bottom-6 right-6 bg-green-500 text-white p-4 rounded-full shadow-xl hover:scale-110 transition duration-300"
+        className="fixed bottom-6 right-6 bg-green-500 
+text-white p-5 rounded-full shadow-2xl 
+hover:scale-110 hover:shadow-green-400/50 
+transition-all duration-300 animate-bounce"
       >
         💬
       </a>

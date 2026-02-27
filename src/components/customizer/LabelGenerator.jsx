@@ -5,7 +5,7 @@ import { useCustomizer } from "../../context/CustomizerContext";
 
 export default function LabelGenerator() {
   const canvasRef = useRef(null);
-  const { brand, tagline, price, logo, logoText, logoColor, setLabelImage } = useCustomizer();
+  const { brand, tagline, price, logo, logoText, logoColor, setLabelImage, setLabelDataUrl } = useCustomizer();
 
   useEffect(() => {
     generateLabel();
@@ -61,10 +61,10 @@ export default function LabelGenerator() {
         const logoSize = 160;
         // Logo positioned on left side
         ctx.drawImage(img, 40, logoYStart, logoSize, logoSize);
-        finalizeLabel(ctx, width, height);
+        finalizeLabel(canvas, ctx, width, height);
       };
       img.onerror = () => {
-        finalizeLabel(ctx, width, height);
+        finalizeLabel(canvas, ctx, width, height);
       };
       img.src = logo;
     } else if (logoText) {
@@ -72,13 +72,13 @@ export default function LabelGenerator() {
       ctx.fillStyle = logoColor;
       ctx.textAlign = "left";
       ctx.fillText(logoText, 70, logoYStart + 80);
-      finalizeLabel(ctx, width, height);
+      finalizeLabel(canvas, ctx, width, height);
     } else {
-      finalizeLabel(ctx, width, height);
+      finalizeLabel(canvas, ctx, width, height);
     }
   };
 
-  const finalizeLabel = (ctx, width, height) => {
+  const finalizeLabel = (canvas, ctx, width, height) => {
     const centerX = width / 2;
     let currentY = 150;
 
@@ -131,11 +131,23 @@ export default function LabelGenerator() {
     ctx.textAlign = "center";
     ctx.fillText("Premium Bottled Label", centerX, height - 40);
 
-    // Export as image
-    canvas.toBlob((blob) => {
-      const url = URL.createObjectURL(blob);
-      setLabelImage(url);
-    }, "image/png", 1.0);
+    // Export as image with proper error handling
+    canvas.toBlob(
+      (blob) => {
+        if (blob) {
+          const url = URL.createObjectURL(blob);
+          setLabelImage(url);
+          
+          // Also store dataURL for reliable downloading
+          const dataUrl = canvas.toDataURL("image/png");
+          setLabelDataUrl(dataUrl);
+        } else {
+          console.error("Failed to create blob from canvas");
+        }
+      },
+      "image/png",
+      1.0
+    );
   };
 
   return (

@@ -33,7 +33,7 @@ export default function Owner() {
           {/* IMAGE */}
           <div className="relative h-[500px] md:h-full">
             <img
-              src="https://images.unsplash.com/photo-1603415526960-f7e0328d5f8b?w=1000"
+              src="https://images.unsplash.com/photo-1480429370139-e0132c086e2a?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8bWFufGVufDB8fDB8fHww"
               alt="Owner"
               className="w-full h-full object-cover"
             />

@@ -5,11 +5,11 @@ import { OrbitControls, useGLTF } from "@react-three/drei";
 import { useCustomizer } from "../../context/CustomizerContext";
 
 const BOTTLE_DESIGNS = [
-  { id: 1, name: "Round", model: "/models/round.glb" },
-  { id: 2, name: "Square", model: "/models/square.glb" },
-  { id: 3, name: "Cylindrical", model: "/models/cylindrical.glb" },
-  { id: 4, name: "Premium", model: "/models/round.glb" },
-  { id: 5, name: "Eco", model: "/models/square.glb" },
+  { id: 1, name: "Round", model: "/models/b1.glb" },
+  { id: 2, name: "Square", model: "/models/b2.glb" },
+  { id: 3, name: "Cylindrical", model: "/b3/cylindrical.glb" },
+  { id: 4, name: "Premium", model: "/b5/round.glb" },
+  { id: 5, name: "Eco", model: "/b6/square.glb" },
 ];
 
 function BottlePreview({ design }) {
@@ -36,7 +36,7 @@ export default function DesignSelector() {
             onClick={() => setSelectedDesign(design.id)}
             className={`relative p-4 border-2 rounded-xl transition-all h-64 ${
               selectedDesign === design.id
-                ? "border-blue-600 bg-blue-50 shadow-lg"
+                ? "border-emerald-600 bg-blue-50 shadow-lg"
                 : "border-gray-300 hover:border-gray-400 bg-white"
             }`}
           >
@@ -54,7 +54,7 @@ export default function DesignSelector() {
             </div>
             <p className="font-semibold text-sm text-gray-900">{design.name}</p>
             {selectedDesign === design.id && (
-              <div className="absolute top-2 right-2 bg-blue-600 text-white rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold">
+              <div className="absolute top-2 right-2 bg-emerald-600 text-white rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold">
                 ✓
               </div>
             )}
