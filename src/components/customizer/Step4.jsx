@@ -63,7 +63,7 @@ Thank you! 🎉
 
   return (
     <div className="space-y-6">
-      <h2 className="text-2xl font-bold text-gray-900">Step 4 &#8211; Review &amp; Share</h2>
+      <h2 className="text-2xl font-bold text-gray-900"> Review &amp; Share</h2>
 
       <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
         <p className="text-sm text-blue-900">
@@ -80,8 +80,9 @@ Thank you! 🎉
           className="w-full p-3 border border-gray-300 rounded-lg mt-1 text-gray-900 bg-white focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
           min="1"
           placeholder="Enter quantity"
-        />
+        /> 
       </div>
+
 
       <div className="text-gray-800 bg-gray-50 p-4 rounded-lg">
         <strong className="text-lg">Total:</strong> <span className="text-2xl font-bold text-red-700">₹{total}</span>

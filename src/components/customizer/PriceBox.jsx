@@ -6,9 +6,9 @@ export default function PriceBox() {
   return (
     <div className="bg-white p-6 rounded-2xl shadow-lg space-y-4 text-slate-800">
 
-      <h3 className="text-xl font-semibold border-b border-slate-700 pb-2">
+      <h6 className="text-lg font-semibold border-b border-slate-700 pb-2">
         Order Summary
-      </h3>
+      </h6>
 
       <div className="flex justify-between text-slate-300">
         <span>Price per Unit</span>

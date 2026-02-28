@@ -81,13 +81,13 @@ Thank you for your order! 🎉
         </div>
 
         {/* Step Indicator */}
-        <div className="mb-8 flex justify-between items-center">
+        <div className="mb-8 flex justify-around items-center">
           {[1, 2, 3, 4].map((s) => (
             <div key={s} className="flex items-center">
               <div
-                className={`w-12 h-12 rounded-full shadow-lg ring-4 ring-white flex items-center justify-center font-bold transition-all ${
+                className={`w-12 h-12 rounded-full shadow-lg ring-4 ring-white flex justify-center items-center font-bold transition-all ${
                   s === step
-                    ? " from-emerald-600 to-teal-600 text-white shadow-lg scale-110 "
+                    ? " from-emerald-600 to-teal-600 bg-emerald-300 text-gray-700 shadow-lg scale-110 "
                     : s < step
                     ? "bg-emerald-600 text-white"
                     : "bg-gray-300 text-gray-600"
@@ -107,9 +107,9 @@ Thank you for your order! 🎉
         </div>
 
         {/* Step Titles */}
-        <div className="grid grid-cols-4 gap-4 mb-12 text-center">
+        <div className="grid grid-cols-4  gap-4 mb-12 text-center">
           <div>
-            <p className={`text-sm font-semibold ${step >= 1 ? "text-emerald-600" : "text-gray-500"}`}>
+            <p className={`text-sm  font-semibold ${step >= 1 ? "text-emerald-600" : "text-gray-500"}`}>
               Step 1: Pick Design
             </p>
           </div>
@@ -130,9 +130,9 @@ Thank you for your order! 🎉
           </div>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-10">
+        <div className="grid  lg:grid-cols-2 gap-10">
           {/* LEFT - 3D BOTTLE VIEWER */}
-          <div className="flex flex-col gap-8">
+          <div className="flex bg-white/80 backdrop-blur-xl flex-col gap-8 p-6 rounded-3xl border border-emerald-100 shadow-lg">
             <BottleViewer
               selectedDesign={selectedDesign}
               labelImage={labelImage}

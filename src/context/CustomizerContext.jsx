@@ -5,10 +5,10 @@ const CustomizerContext = createContext();
 
 export function CustomizerProvider({ children }) {
   const [selectedDesign, setSelectedDesign] = useState("");
-  const [quantity, setQuantity] = useState(0);
+  const [quantity, setQuantity] = useState("");
   const [brand, setBrand] = useState("");
   const [tagline, setTagline] = useState("");
-  const [price, setPrice] = useState(0);
+  const [price, setPrice] = useState("");
   const [logo, setLogo] = useState(null);
   const [logoText, setLogoText] = useState("");
   const [logoColor, setLogoColor] = useState("#3b82f6");

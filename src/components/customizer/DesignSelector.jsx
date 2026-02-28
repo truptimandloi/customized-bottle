@@ -1,25 +1,27 @@
 "use client";
 
+import React from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, useGLTF } from "@react-three/drei";
 import { useCustomizer } from "../../context/CustomizerContext";
 
+
+// keep model list in sync with BottleViewer paths
 const BOTTLE_DESIGNS = [
   { id: 1, name: "Round", model: "/models/b1.glb" },
   { id: 2, name: "Square", model: "/models/b2.glb" },
-  { id: 3, name: "Cylindrical", model: "/b3/cylindrical.glb" },
-  { id: 4, name: "Premium", model: "/b5/round.glb" },
-  { id: 5, name: "Eco", model: "/b6/square.glb" },
+  { id: 3, name: "Cylindrical", model: "/models/b3.glb" },
+  { id: 4, name: "Premium", model: "/models/b4.glb" },
+  { id: 5, name: "Eco", model: "/models/b5.glb" },
 ];
 
 function BottlePreview({ design }) {
-  try {
-    const { scene } = useGLTF(design.model);
-    return <primitive object={scene} scale={1} />;
-  } catch (error) {
-    return <mesh><boxGeometry args={[1, 2, 1]} /><meshStandardMaterial color="#3b82f6" /></mesh>;
-  }
+  const { scene } = useGLTF(design.model);
+  return <primitive object={scene} scale={1} />;
 }
+
+// wrap the preview in Suspense where the component is used so errors don't fall back to try/catch
+
 
 export default function DesignSelector() {
   const { selectedDesign, setSelectedDesign } = useCustomizer();
@@ -42,9 +44,16 @@ export default function DesignSelector() {
           >
             <div className="h-48 mb-2">
               <Canvas camera={{ position: [0, 0, 3], fov: 40 }}>
-                <ambientLight intensity={1} />
-                <directionalLight position={[2, 2, 2]} />
-                <BottlePreview design={design} />
+                <ambientLight intensity={0.8} />
+                <directionalLight position={[2, 2, 2]} intensity={1.2} />
+                <React.Suspense fallback={
+                  <mesh>
+                    <boxGeometry args={[1, 2, 1]} />
+                    <meshStandardMaterial color="#999" />
+                  </mesh>
+                }>
+                  <BottlePreview design={design} />
+                </React.Suspense>
                 <OrbitControls
                   enablePan={false}
                   autoRotate
